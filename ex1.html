@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="chess-board">
+    </div>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        .chess-row {
+            display: flex;
+        }
+
+        .cell {
+            border: 1px solid black;
+        }
+
+        .cell,
+        .label {
+            width: 30px;
+            height: 30px;
+        }
+
+        @media (min-width: 320px) {
+
+            .cell,
+            .label {
+                width: 40px;
+                height: 40px;
+            }
+        }
+
+        @media (min-width: 768px) {
+
+            .cell,
+            .label {
+                width: 80px;
+                height: 80px;
+            }
+        }
+
+        .label-num {
+            display: flex;
+            align-items: center;
+            justify-content: end;
+        }
+
+        .label-letter {
+            display: flex;
+            justify-content: center;
+        }
+
+        .label-num-content {
+            margin-right: 10px;
+        }
+
+        .label-letter-content {
+            margin-top: 10px;
+        }
+
+        .black {
+            background-color: black;
+        }
+    </style>
+
+    <script src="hw/lesson5/1.js"></script>
+
+</body>
+
+</html>
