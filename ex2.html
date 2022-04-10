@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+</head>
+
+<body>
+    <style>
+        .small-img {
+            object-fit: cover;
+            cursor: pointer;
+        }
+
+        .hystmodal__close {
+            border: none;
+            background-color: rgba(255, 255, 255, 0);
+            color: red;
+        }
+
+        .pointer {
+            cursor: pointer;
+        }
+
+        .large-img {
+            width: 90%;
+        }
+
+        .hystmodal {
+            position: fixed;
+            top: 0;
+            bottom: 0;
+            right: 0;
+            left: 0;
+            overflow: hidden;
+            overflow-y: auto;
+            -webkit-overflow-scrolling: touch;
+            display: flex;
+            flex-flow: column nowrap;
+            justify-content: center;
+
+            align-items: center;
+            z-index: -2;
+            padding: 30px 0;
+        }
+
+        .hystmodal__wrap {
+            flex-shrink: 0;
+            flex-grow: 0;
+            width: 100%;
+            min-height: 100%;
+            margin: auto;
+            display: flex;
+            flex-flow: column nowrap;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .hystmodal__window {
+            margin: 50px 0;
+            flex-shrink: 0;
+            flex-grow: 0;
+            background: #fff;
+            width: 1200px;
+            max-width: 100%;
+            overflow: visible;
+            transition: transform 0.2s ease 0s, opacity 0.2s ease 0s;
+            transform: scale(0.9);
+            opacity: 0;
+        }
+
+        .hystmodal--active {
+            visibility: visible;
+        }
+
+        .hystmodal--active .hystmodal__window {
+            transform: scale(1);
+            opacity: 1;
+        }
+
+        .hystmodal__shadow {
+            position: fixed;
+            border: none;
+            display: block;
+            /* width: 100%; */
+            top: 0;
+            bottom: 0;
+            right: 0;
+            left: 0;
+            overflow: hidden;
+            pointer-events: none;
+            z-index: 98;
+            opacity: 0;
+            transition: opacity 0.15s ease;
+            background-color: black;
+        }
+
+        /* активная подложка */
+        .hystmodal__shadow--show {
+            pointer-events: auto;
+            opacity: 0.6;
+        }
+    </style>
+    <div id="img-block">
+        <img data-hystmodal=".hystmodal" class="small-img" src="hw/lesson6/ex2-pic/small/1.jpeg"
+            data-large-img="hw/lesson6/ex2-pic/large/1.jpeg" width="100" height="100" alt="Фото1">
+        <img data-hystmodal=".hystmodal" class="small-img" src="hw/lesson6/ex2-pic/small/2.jpeg"
+            data-large-img="hw/lesson6/ex2-pic/large/2.jpeg" width="100" height="100" alt="Фото2">
+        <img data-hystmodal=".hystmodal" class="small-img" src="hw/lesson6/ex2-pic/small/3.jpeg"
+            data-large-img="hw/lesson6/ex2-pic/large/3.jpeg" width="100" height="100" alt="Фото3">
+        <img data-hystmodal=".hystmodal" class="small-img" src="hw/lesson6/ex2-pic/small/4.jpeg"
+            data-large-img="hw/lesson6/ex2-pic/large/4.jpeg" width="100" height="100" alt="Фото4">
+        <img data-hystmodal=".hystmodal" class="small-img" src="hw/lesson6/ex2-pic/small/5.jpeg"
+            data-large-img="hw/lesson6/ex2-pic/large/5.jpeg" width="100" height="100" alt="Фото5">
+        <img data-hystmodal=".hystmodal" class="small-img" src="hw/lesson6/ex2-pic/small/6.jpeg"
+            data-large-img="hw/lesson6/ex2-pic/large/6.jpeg" width="100" height="100" alt="Фото6">
+    </div>
+
+    <div class="hystmodal" id="myModal" aria-hidden="true">
+        <div class="hystmodal__wrap">
+            <div class="hystmodal__window" role="dialog" aria-modal="true">
+
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-12 d-flex justify-content-end"><button data-hystclose
+                                class="hystmodal__close fs-3">X</button>
+                        </div>
+                    </div>
+                    <div class="row d-flex flex-nowrap align-items-center justify-content-center">
+                        <div class="col-auto shifter fs-1 pointer pe-0" data-previous-img="">&lt;</div>
+                        <img src="" class="col large-img pb-3 px-3" id="modal-img" alt="Изображение" />
+                        <div class="col-auto shifter fs-1 pointer ps-0" data-next-img="">&gt;</div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <script src="hw/lesson6/2.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
